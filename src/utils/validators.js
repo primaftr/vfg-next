@@ -68,10 +68,10 @@ export function translate(key, args, res) {
   args = {
     ...args,
     get field() {
-      return this.fieldName ? i18n.te(this.fieldName) ? i18n.tm(this.fieldName) : this.fieldName : "";
+      return this.fieldName ? i18n?.te(this.fieldName) ? i18n?.tm(this.fieldName) : this.fieldName : "";
     },
     get reference() {
-      return this.refFieldName ? i18n.te(this.refFieldName) ? i18n.tm(this.refFieldName) : this.refFieldName : "";
+      return this.refFieldName ? i18n?.te(this.refFieldName) ? i18n?.tm(this.refFieldName) : this.refFieldName : "";
     }
   }
   return i18n
