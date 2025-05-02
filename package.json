@@ -1,6 +1,6 @@
 {
 	"name": "vfg-vue3",
-	"version": "1.0.9",
+	"version": "1.1.0",
 	"description": "Forked of vfg-next with some fixes and upgrades. A schema-based form generator component for Vue.js 3",
 	"homepage": "https://github.com/primaftr/vfg-vue3/",
 	"private": false,
