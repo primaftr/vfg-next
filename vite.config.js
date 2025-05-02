@@ -27,12 +27,20 @@ export default defineConfig({
 		banner(bannerText),
 		cssInjectedByJs(),
 	],
+	resolve: {
+		alias: {
+			'@': fileURLToPath(new URL('./src', import.meta.url)),
+			lodash: 'lodash-es',
+		},
+	},
 	build: {
 		lib: {
 			entry: 'src/index.js',
 			name: pkg.name,
-			formats: ['es', 'umd'],
-			fileName: format => (format === 'es' ? pkg.module.split('/').pop() : pkg.main.split('/').pop()),
+			formats: ['es', 'cjs'],
+			fileName: format => {
+				return format === 'es' ? 'vfg-vue3.esm.js' : 'vfg-vue3.umd.js'
+			},
 		},
 		sourcemap: true,
 		minify: 'terser',
@@ -46,22 +54,19 @@ export default defineConfig({
 			},
 		},
 		rollupOptions: {
-			external: ['vue', 'lodash', 'fecha'],
+			external: ['vue', 'lodash-es', 'fecha'],
 			output: {
 				globals: {
 					vue: 'Vue',
-					lodash: 'lodash',
 					fecha: 'fecha',
 				},
 				exports: 'named',
 				compact: true,
-				inlineDynamicImports: true,
 			},
 		},
 	},
-	resolve: {
-		alias: {
-			'@': fileURLToPath(new URL('./src', import.meta.url)),
-		},
+	optimizeDeps: {
+		exclude: ['lodash'], // ✅ to be safe, explicitly exclude
+		include: ['lodash-es'],
 	},
 })

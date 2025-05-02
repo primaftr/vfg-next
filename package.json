@@ -1,14 +1,18 @@
 {
 	"name": "vfg-vue3",
-	"version": "1.00.0",
-	"description": "A schema-based form generator component for Vue.js 3",
-	"homepage": "https://github.com/bagus/vfg-vue3/",
+	"version": "1.1.0",
+	"description": "Forked of vfg-next with some fixes and upgrades. A schema-based form generator component for Vue.js 3",
+	"homepage": "https://github.com/primaftr/vfg-vue3/",
 	"private": false,
-	"main": "dist/vfg-vue3.min.js",
+	"main": "dist/vfg-vue3.umd.js",
 	"module": "dist/vfg-vue3.esm.js",
+	"exports": {
+		"import": "./dist/vfg-vue3.esm.js",
+		"require": "./dist/vfg-vue3.umd.js"
+	},
 	"jsnext:main": "dist/vfg-vue3.esm.js",
-	"unpkg": "dist/vfg-vue3.min.js",
-	"jsdelivr": "dist/vfg-vue3.min.js",
+	"unpkg": "dist/vfg-vue3.umd.js",
+	"jsdelivr": "dist/vfg-vue3.umd.js",
 	"style": "dist/vfg-vue3.css",
 	"files": [
 		"src",
@@ -77,7 +81,7 @@
 	},
 	"dependencies": {
 		"fecha": "^4.2.0",
-		"lodash": "^4.17.20"
+		"lodash-es": "^4.17.21"
 	},
 	"publishConfig": {
 		"access": "public"
